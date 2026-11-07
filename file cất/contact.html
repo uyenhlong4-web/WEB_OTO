@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ</title>
+    <link rel="stylesheet" href="cssweb.css">
+</head>
+<body>
+    <section id="contact" class="container">
+        <h2>Liên hệ</h2>
+        <p>
+            Nếu bạn có dự án, ý tưởng hoặc mong muốn kết nối, hợp tác và chia sẻ kiến thức về 
+            <strong>STEM Kỹ thuật Ô tô</strong>, đừng ngần ngại liên hệ với chúng tôi. 
+            Chúng tôi luôn sẵn sàng lắng nghe và đồng hành cùng bạn trong các hoạt động nghiên cứu, học tập và sáng tạo.
+        </p>
+        <form id="contact-form">
+            <div class="form-group">
+                <label for="name">Họ và tên</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Nội dung</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit">Gửi</button>
+        </form>
+    </section>
+    <div id="message-box" class="message-box"></div>
+
+</body>
+</html>

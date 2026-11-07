@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng ký - STEM Kỹ thuật Ô tô</title>
+  <link rel="stylesheet" href="cssweb.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <h1><a href="main.html" style="color:white; text-decoration: none">STEM Kỹ thuật Ô tô</a></h1>
+      <nav>
+        <ul>
+          <li><a href="main.html" class="auth-btn">Trang chủ</a></li>
+          <li><a href="login.html" class="auth-btn" >Đăng nhập</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Register Form -->
+  <main>
+    <section class="form-section">
+      <div class="form-container">
+        <h2>Đăng ký</h2>
+        <form id="register-form">
+          <div class="form-group">
+            <label for="name">Họ và tên</label>
+            <input type="text" id="name" name="name" placeholder="Nhập họ và tên" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Nhập email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Mật khẩu</label>
+            <input type="password" id="password" name="password" placeholder="Tạo mật khẩu" required>
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Xác nhận mật khẩu</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Nhập lại mật khẩu" required>
+          </div>
+          <button type="submit">Đăng ký</button>
+          <p class="form-text">Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+        </form>
+        <p id="register-message"></p>
+      </div>
+      <!-- Thêm khung thông báo -->
+      <div id="message-box" class="message-box"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 STEM Kỹ thuật Ô tô</p>
+    </div>
+  </footer>
+
+  <script src="signup.js"></script>
+</body>
+</html>

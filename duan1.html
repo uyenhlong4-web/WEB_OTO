@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết: Thiết kế Xe điện Mini - EV Engineering</title>
+    <link rel="stylesheet" href="cssweb.css"> 
+    <style>
+        .single-article {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .article-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+        .content-section h2 {
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        .content-section h3 {
+            color: #e97c1d; 
+            border-bottom: 1px dashed #f0f0f0;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        .content-section ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            line-height: 1.6;
+        }
+        .diagram-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .diagram-container img {
+            max-width: 80%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        /* Bổ sung style cho các box kiến thức chuyên sâu */
+        .deep-dive {
+            background-color: #f0f7ff;
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .math-formula {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            font-size: 1.1em;
+            display: block;
+            margin: 5px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="message-box" class="message-box"></div>
+    <header>
+        <div class="container header-container">
+            <h1><a href="main.html">STEM Kỹ thuật Ô tô</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="main.html#about">Giới thiệu</a></li>
+                    <li><a href="main.html#topics">Chủ đề</a></li>
+                    <li><a href="main.html#projects">Dự án</a></li>
+                    <li><a href="main.html#contact">Liên hệ</a></li>
+                    <li><a href="index.html">Câu hỏi Quiz</a></li>
+                    <li id="auth-area" class="user-menu"></li>
+                </ul>
+        </div>
+    </header>
+    <main class="container content-container">
+        <div class="container single-article"> 
+            <a href="main.html#projects" class="back-link">Quay lại Danh sách Dự án</a>
+            <h1 class="main-title">Thiết kế Xe điện Mini: Nền tảng Kỹ thuật Ô tô Điện</h1>
+            <div class="separator" style="width: 100px; background-color: #454f5a;"></div>
+            <p class="intro" style="font-size: 1.1em; font-style: italic; color: #555;">
+                Dự án cung cấp cái nhìn toàn diện về cấu trúc và nguyên lý vận hành của phương tiện điện (EVs), từ mạch điều khiển đến cơ cấu truyền động, là bước đệm vững chắc cho ngành công nghiệp ô tô tương lai.
+            </p>
+            <img src="https://media.loveitopcdn.com/5371/xe-nuoc-muoi.jpg" alt="Mô hình Xe điện Mini" class="article-image">
+            <div class="content-section">
+                <h2>I. Nguyên lý Khoa học và Hệ thống Điện tử</h2>      
+                <h3>1. Động cơ Điện (DC Motor) - Cảm ứng Điện từ</h3>
+                <p>Động cơ DC chuyển đổi năng lượng điện thành chuyển động quay thông qua nguyên tắc cơ bản của cảm ứng điện từ. Người học áp dụng **Định luật Lorentz** để giải thích lực tác động lên dây dẫn mang dòng điện nằm trong từ trường, tạo ra mô-men xoắn làm quay trục động cơ.</p>
+                <div class="deep-dive">
+                    <b>Công thức cốt lõi (Mô tả):</b> 
+                    Lực Lorentz tỷ lệ thuận với cường độ dòng điện (I), chiều dài dây dẫn (L), và cường độ từ trường (B). Lực này tạo ra **Mô-men xoắn** (T) quanh trục động cơ, giúp động cơ quay.
+                </div>
+                <div class="diagram-container">
+                    <img src="images/img1duan1.jpg" alt="Sơ đồ minh họa nguyên lý cảm ứng điện từ trong động cơ DC" class="article-image">
+                    <p style="font-style: italic; color: #777;">(Sơ đồ minh họa nguyên lý cảm ứng điện từ trong động cơ DC)</p>
+
+                </div>
+                <div class="deep-dive">
+                    <strong>Kiến thức chuyên sâu:</strong> Trong xe điện thực tế, thường sử dụng động cơ <b>AC Induction</b> hoặc <b>Permanent Magnet Synchronous Motor (PMSM)</b> do hiệu suất, mật độ công suất cao hơn và ít cần bảo trì hơn động cơ DC chổi than.
+                </div>
+                <h3>2. Hệ thống Năng lượng và Điều khiển</h3>
+                <p>Hệ thống pin (hoặc ắc quy) là trái tim của EV. Phần này giúp rèn luyện kỹ năng **điện tử cơ bản** và **an toàn điện** qua các thành phần:</p>
+                <ul>
+                    <li><b>Nguồn Điện & Bảo vệ:</b> Lắp ráp mạch điện theo sơ đồ. Nghiên cứu vai trò của **cầu chì (fuse)** trong việc bảo vệ mạch khỏi quá dòng.</li>
+                    <li><b>Hệ thống BMS (Battery Management System):</b> Trong EV hiện đại, BMS là bộ não quản lý Pin, theo dõi nhiệt độ, điện áp và dòng điện của từng cell pin để đảm bảo **an toàn** và **tuổi thọ** của bộ pin.</li>
+                    <li><b>Bộ Điều khiển Tốc độ (Controller):</b> Bộ phận này dùng kỹ thuật **điều chế độ rộng xung (PWM)** để thay đổi điện áp hiệu dụng cấp cho động cơ, qua đó điều khiển tốc độ và mô-men xoắn.</li>
+                </ul>
+                <div class="diagram-container">
+                    [Image of H-Bridge DC motor control circuit with PWM]
+                    <img src="images/img2duan1.jpg" alt="Sơ đồ mạch điều khiển động cơ DC sử dụng cầu H và PWM" class="article-image">
+                    <p style="font-style: italic; color: #777;">(Sơ đồ mạch điều khiển động cơ DC sử dụng cầu H và PWM)</p>
+                </div>
+                <h2>II. Kỹ thuật (Engineering) và Toán học (Math) ứng dụng</h2>              
+                <h3>1. Thiết kế Cơ khí Truyền động (Drivetrain)</h3>
+                <p>Khía cạnh kỹ thuật đòi hỏi phải tối ưu hóa sự chuyển đổi từ mô-men xoắn động cơ sang lực kéo bánh xe. Đây là nơi các phép tính cơ học được áp dụng:</p>
+                <ul>
+                    <li><b>Tính toán Tỉ số truyền (Gear Ratio):</b> Xác định tỉ lệ bánh răng để tối ưu hóa giữa tốc độ (tối đa) và lực kéo (khả năng tăng tốc). Tỉ số truyền lớn giúp mô-men xoắn đầu ra cao, phù hợp leo dốc. Tỉ số truyền được tính bằng cách chia số răng của bánh răng lớn cho số răng của bánh răng nhỏ.
+                    </li>
+                    <li><b>Lực kéo tại bánh xe:</b> Mô-men xoắn động cơ sau khi qua hộp số tạo ra lực kéo ($F_{kéo}$) đẩy xe. Lực kéo này được tính bằng cách lấy Mô-men xoắn đầu ra nhân với Tỉ số truyền, rồi chia cho Bán kính bánh xe.
+                    </li>
+                    <li><b>Hiệu suất:</b> Tính toán hiệu suất tổng thể của hệ thống, bao gồm hiệu suất động cơ và tổn thất năng lượng qua các khớp nối và ma sát.</li>
+                </ul> 
+                <h3>2. Động lực học và Tầm nhìn Công nghiệp</h3>
+                <p>Dự án mini giúp người học nắm bắt các yếu tố ảnh hưởng đến động lực học của EV, từ đó liên kết với xu hướng lớn trong ngành ô tô:</p>
+                <ul>
+                    <li><b>Khối lượng và Lực cản:</b> Tính toán ảnh hưởng của khối lượng và lực cản không khí (Air drag) đến công suất tiêu thụ và phạm vi hoạt động của xe.</li>
+                    <li><b>Tầm nhìn Bền vững:</b> Phân tích sự khác biệt cơ bản giữa hệ thống truyền động <b>ICE (Internal Combustion Engine)</b> và <b>EV</b>, nhấn mạnh vào lợi ích môi trường và khả năng tái tạo năng lượng (Phanh tái sinh).</li>
+                    <li><b>Kết nối:</b> Hiểu rằng các EV thương mại như Tesla hay VinFast đều dựa trên những nguyên lý điện từ và cơ học cơ bản này, nhưng được mở rộng và tích hợp thêm công nghệ điều khiển phức tạp.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 STEM Kỹ thuật Ô tô. All rights reserved.</p>         
+            <p>Hotline : +8348975461</p>
+            <p>Email : dacthanh0605@gmail.com</p>
+        </div>
+    </footer>
+    </body>
+</html>
+<script>
+    async function checkUser() {
+        try {
+            let res = await fetch("http://localhost/web/check_session.php");
+            let data = await res.json();
+            const authArea = document.getElementById("auth-area");
+
+            if (data.logged_in) {
+                authArea.innerHTML = `
+                    <span class="user-name" onclick="toggleDropdown()">Xin chào, ${data.user_name} ▾</span>
+                    <ul class="dropdown" id="userDropdown">
+                        <li><a href="profile.html">Thông tin cá nhân</a></li>
+                        <li><a href="my_course.html">Khóa học của tôi</a></li>
+                        <li><a href="#" id="logout-link">Đăng xuất</a></li>
+                    </ul>
+                `;
+                document.getElementById("logout-link").addEventListener("click", async (e) => {
+                    e.preventDefault();
+                    await fetch("http://localhost/web/logout.php");
+                    location.reload();
+                });
+            } else {
+                authArea.innerHTML = `
+                    <div class="auth-buttons">
+                        <a href="login.html" class="auth-btn">Đăng nhập</a>
+                        <a href="signup.html" class="auth-btn">Đăng ký</a>
+                    </div>
+                `;
+            }
+        } catch (err) {
+            console.error("Lỗi khi kiểm tra session:", err);
+        }
+    }
+
+    function toggleDropdown() {
+        document.getElementById("userDropdown").classList.toggle("show");
+    }
+
+    window.onclick = function(e) {
+        if (!e.target.matches('.user-name')) {
+            let dropdown = document.getElementById("userDropdown");
+            if (dropdown && dropdown.classList.contains("show")) {
+                dropdown.classList.remove("show");
+            }
+        }
+    }
+
+    checkUser();
+</script>

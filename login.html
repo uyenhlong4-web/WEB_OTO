@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập - STEM Kỹ thuật Ô tô</title>
+  <link rel="stylesheet" href="cssweb.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <h1><a href="main.html" style="color:white; text-decoration: none">STEM Kỹ thuật Ô tô</a></h1>
+      <nav>
+        <ul>
+          <li><a href="main.html" class="auth-btn">Trang chủ</a></li>
+          <li><a href="signup.html" class="auth-btn">Đăng ký</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Login Form -->
+  <main>
+    <section class="form-section">
+      <div class="form-container">
+        <h2>Đăng nhập</h2>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Nhập email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Mật khẩu</label>
+            <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
+          </div>
+          <button type="submit">Đăng nhập</button>
+          <p class="form-text">Chưa có tài khoản? <a href="signup.html">Đăng ký ngay</a></p>
+        </form>
+        <div id="message-box" class="message-box"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+            <p>&copy; 2025 STEM Kỹ thuật Ô tô. All rights reserved.</p>
+            <p>Hotline : +8348975461</p>
+            <p>Email : dacthanh0605@gmail.com</p>
+    </div>
+  </footer>
+
+  <script src="login.js"></script>
+</body>
+</html>

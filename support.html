@@ -1,0 +1,80 @@
+// 1. Định nghĩa HTML của Widget Hỗ trợ
+const supportWidgetHTML = `
+<div id="support-widget">
+    <button id="chat-toggle-btn">
+        💬 Hỗ trợ
+    </button>
+    
+    <div id="chat-window">
+        <div class="chat-header">Bạn cần hỗ trợ gì?</div>
+        
+        <div class="chat-body">
+            <div class="chat-faq">
+                <h4>Các câu hỏi thường gặp:</h4>
+                <ul>
+                    <li class="question">1. Chương trình STEM này dành cho độ tuổi nào?</li>
+                    <li class="question">2. Tôi có cần kiến thức nền về Ô tô không?</li>
+                    <li class="question">3. Chi phí tham gia các dự án là bao nhiêu?</li>
+                    <li class="question">4. Làm thế nào để đăng ký tài khoản?</li>
+                </ul>
+                
+                <hr>
+                <p style="font-size: 14px; margin-top: 15px; text-align: center;">
+                    Không tìm thấy câu trả lời? <a href="#contact">Gửi liên hệ chi tiết</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+`;
+
+// 2. Định nghĩa CSS của Widget Hỗ trợ (Để đảm bảo nó hoạt động ngay cả khi CSS chính không tải)
+const supportWidgetCSS = `
+#support-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+}
+/* Thêm các CSS khác cho #chat-toggle-btn, #chat-window, .chat-header, ... vào đây */
+/* Bạn có thể lấy toàn bộ CSS tôi đã cung cấp trước đó và cho vào trong dấu nháy kép này */
+/* Để đơn giản, tôi chỉ để phần cơ bản ở đây, bạn nên dán full CSS vào file CSS riêng */
+`;
+
+// 3. Hàm tích hợp Widget vào trang chính
+function initializeSupportWidget() {
+    // Chèn HTML
+    document.body.insertAdjacentHTML('beforeend', supportWidgetHTML);
+    
+    // Tùy chọn: Chèn CSS động (Tốt hơn là dán CSS này vào file cssweb.css của bạn)
+    // const style = document.createElement('style');
+    // style.textContent = supportWidgetCSS;
+    // document.head.appendChild(style);
+
+    // Xử lý Logic JavaScript (Giống logic tôi đã cung cấp)
+    const chatButton = document.getElementById('chat-toggle-btn');
+    const chatWindow = document.getElementById('chat-window');
+    
+    if (chatButton && chatWindow) {
+        chatButton.addEventListener('click', function() {
+            chatWindow.classList.toggle('open');
+            
+            if (chatWindow.classList.contains('open')) {
+                chatButton.innerHTML = '❌ Đóng';
+            } else {
+                chatButton.innerHTML = '💬 Hỗ trợ';
+            }
+        });
+        
+        // Logic cho FAQ
+        document.querySelectorAll('.chat-faq li').forEach(item => {
+            item.addEventListener('click', function() {
+                alert(`Câu trả lời cho: "${this.textContent}" sẽ được hiển thị ở đây!`);
+            });
+        });
+    }
+}
+
+// Chạy hàm khi DOM đã tải xong
+document.addEventListener('DOMContentLoaded', initializeSupportWidget);

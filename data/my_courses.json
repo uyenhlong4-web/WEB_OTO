@@ -1,0 +1,32 @@
+[
+    {
+        "id": "68d76bd9a950e",
+        "name": "1",
+        "file_path": ".\/uploads\/courses\/b92e14a251a3a3160c4d57f917b0bdaf.docx",
+        "uploaded_at": "2025-09-27 06:45:13"
+    },
+    {
+        "id": "68d76bf8251a1",
+        "name": "a\u00e2",
+        "file_path": ".\/uploads\/courses\/ebcf53b67432e71de04f71458999a484.docx",
+        "uploaded_at": "2025-09-27 06:45:44"
+    },
+    {
+        "id": "6918225652341",
+        "name": "abc",
+        "file_path": ".\/uploads\/courses\/a4254b6c3d205bdd3799ceb41f932393.docx",
+        "uploaded_at": "2025-11-15 07:48:54"
+    },
+    {
+        "id": "6918264b7a2b2",
+        "name": "abc",
+        "file_path": ".\/uploads\/courses\/e4e077d0634515015d91064eac16fea6.docx",
+        "uploaded_at": "2025-11-15 08:05:47"
+    },
+    {
+        "id": "691826560660d",
+        "name": "4",
+        "file_path": ".\/uploads\/courses\/aaffdbfa9f971635f6d8b70b39345dcb.docx",
+        "uploaded_at": "2025-11-15 08:05:58"
+    }
+]

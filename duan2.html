@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết: Dự án 2 - Lập trình Xe tự hành (Autonomous Vehicle)</title>
+    <link rel="stylesheet" href="cssweb.css"> 
+    <style>
+        .single-article {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .article-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+        .content-section h2 {
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        .content-section h3 {
+            color: #e97c1d; 
+            border-bottom: 1px dashed #f0f0f0;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        .content-section ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            line-height: 1.6;
+        }
+        .diagram-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .diagram-container img {
+            max-width: 80%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        /* Bổ sung style cho các box kiến thức chuyên sâu */
+        .deep-dive {
+            background-color: #f0f7ff;
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .math-formula {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            font-size: 1.1em;
+            display: block;
+            margin: 5px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="message-box" class="message-box"></div>
+    <header>
+        <div class="container header-container">
+            <h1><a href="main.html">STEM Kỹ thuật Ô tô</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="main.html#about">Giới thiệu</a></li>
+                    <li><a href="main.html#topics">Chủ đề</a></li>
+                    <li><a href="main.html#projects">Dự án</a></li>
+                    <li><a href="main.html#contact">Liên hệ</a></li>
+                    <li><a href="index.html">Câu hỏi Quiz</a></li>
+                    <li id="auth-area" class="user-menu"></li>
+                </ul>
+        </div>
+    </header>
+
+    <main class="container content-container">
+        <div class="container single-article">    
+            <a href="main.html#projects" class="back-link">Quay lại Danh sách Dự án</a>
+            <h1 class="main-title">Lập trình Xe tự hành (Autonomous Vehicle)</h1>
+            <div class="separator" style="width: 100px; background-color: #454f5a;"></div>
+            <p class="intro" style="font-size: 1.1em; font-style: italic; color: #555;">
+                Dự án sử dụng vi điều khiển và các cảm biến thông minh để lập trình cho xe di chuyển tự động, tập trung vào kỹ năng lập trình, tư duy logic và ứng dụng công nghệ vào thực tế.
+            </p>
+            <img src="https://truonghocthongminh.vn/uploads/476/xe_tu_hang-large.webp" alt="Mô hình Xe tự hành" class="article-image">
+            <div class="content-section">
+                <h2>I. Khoa học (Science) & Điện tử (Electronics)</h2>
+                <h3>1. Cơ sở Cảm biến - Thu thập Dữ liệu Môi trường</h3>
+                <p>Để xe có thể "nhìn" và tương tác với môi trường, nó cần các cảm biến. Phần này khám phá nguyên lý hoạt động vật lý của chúng:</p>
+                <ul>
+                    <li><b>Cảm biến Siêu âm (Ultrasonic):</b> Dùng sóng siêu âm để đo khoảng cách, dựa trên nguyên lý tốc độ âm thanh và thời gian phản xạ (Time of Flight - ToF).</li>
+                    <li><b>Cảm biến Hồng ngoại (IR):</b> Dùng tia hồng ngoại để nhận biết vật cản hoặc dò đường (Line Following), dựa trên độ phản xạ ánh sáng.</li>
+                    <li><b>Con quay hồi chuyển (Gyroscope):</b> Đo tốc độ góc, giúp xe ổn định hướng đi và nhận biết độ nghiêng.</li>
+                </ul>
+                <div class="deep-dive">
+                    <b>Ứng dụng trong EV thực tế:</b> Trong xe thương mại (Level 3-5), các cảm biến này được thay thế bằng công nghệ cao hơn như <b>LiDAR</b>,<b>Radar</b> (sử dụng hiệu ứng Doppler) và <b>Camera Vision</b> (Xử lý ảnh).
+                </div>
+                <div class="diagram-container">
+                    <img src="images/img1duan2.jpg" alt="Sơ đồ nguyên lý hoạt động của cảm biến siêu âm" class="article-image">
+                <p style="font-style: italic; color: #777;">(Sơ đồ mô tả cách cảm biến siêu âm đo khoảng cách)</p>
+                </div>
+                <h3>2. Vi điều khiển (Microcontroller) - Bộ não của xe</h3>
+                <p>Vi điều khiển (như Arduino hoặc Raspberry Pi) nhận tín hiệu từ cảm biến và đưa ra lệnh điều khiển cho động cơ:</p>
+                <ul>
+                    <li><b>Đọc và Xử lý Dữ liệu:</b> Chuyển đổi tín hiệu tương tự (Analog) từ cảm biến sang tín hiệu số (Digital) để xử lý.</li>
+                    <li><b>Bộ Điều khiển Vòng kín (Closed-Loop Control):</b> Vi điều khiển liên tục so sánh trạng thái mong muốn (ví dụ: đi thẳng) với trạng thái thực tế (được đo bởi cảm biến) và điều chỉnh tốc độ động cơ để giữ cho xe đi đúng hướng.</li>
+                </ul>
+                <h2>II. Kỹ thuật (Engineering) & Lập trình (Technology) ứng dụng</h2>
+                <h3>1. Thuật toán và Lập trình Điều khiển (Control Algorithm)</h3>
+                <p>Phần cốt lõi của dự án là thiết kế thuật toán điều khiển cho xe:</p>
+                <ul>
+                    <li><b>Tư duy Logic (If-Else Logic):</b> Lập trình các điều kiện đơn giản như: "Nếu phát hiện vật cản phía trước (cảm biến siêu âm), thì Dừng lại hoặc Rẽ sang Trái/Phải."</li>
+                    <li><b>Vòng lặp và Tối ưu hóa:</b> Xây dựng các vòng lặp (Loop) để xe liên tục kiểm tra môi trường và điều chỉnh. Người học có thể áp dụng thuật toán <b>PID Controller</b> cơ bản để làm mịn quá trình điều khiển.</li>
+                    <li><b>Phân tích Dữ liệu:</b> Ghi nhận và phân tích dữ liệu cảm biến để hiệu chỉnh thuật toán, giúp xe hoạt động chính xác và hiệu quả hơn.</li>
+                </ul> 
+                <h3>2. Kết nối Cơ khí và Điện tử</h3>
+                <p>Dự án này là sự kết hợp giữa thiết kế cơ khí và lập trình điện tử:</p>
+                <ul>
+                    <li><b>Lắp ráp và Tối ưu hóa:</b> Đảm bảo vị trí lắp đặt cảm biến (góc nhìn, độ cao) là tối ưu để thu thập dữ liệu chính xác nhất.</li>
+                    <li><b>Tương tác Phần cứng/Phần mềm:</b> Hiểu rõ giao tiếp giữa các chân tín hiệu (I/O Pins) của vi điều khiển với mạch điều khiển động cơ và cảm biến.</li>
+                    <li><b>Tầm nhìn Công nghệ Tương lai:</b> Công nghệ xe tự hành (Self-Driving) đang định hình lại ngành ô tô. Dự án nhỏ này cung cấp nền tảng cơ bản về cách các hệ thống lớn hoạt động: Cảm nhận (Sensing) -> Xử lý (Processing) -> Hành động (Actuating).</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 STEM Kỹ thuật Ô tô. All rights reserved.</p>         
+            <p>Hotline : +8348975461</p>
+            <p>Email : dacthanh0605@gmail.com</p>
+        </div>
+    </footer>
+    </body>
+</html>
+<script>
+    async function checkUser() {
+        try {
+            let res = await fetch("http://localhost/web/check_session.php");
+            let data = await res.json();
+            const authArea = document.getElementById("auth-area");
+
+            if (data.logged_in) {
+                authArea.innerHTML = `
+                    <span class="user-name" onclick="toggleDropdown()">Xin chào, ${data.user_name} ▾</span>
+                    <ul class="dropdown" id="userDropdown">
+                        <li><a href="profile.html">Thông tin cá nhân</a></li>
+                        <li><a href="my_course.html">Khóa học của tôi</a></li>
+                        <li><a href="#" id="logout-link">Đăng xuất</a></li>
+                    </ul>
+                `;
+                document.getElementById("logout-link").addEventListener("click", async (e) => {
+                    e.preventDefault();
+                    await fetch("http://localhost/web/logout.php");
+                    location.reload();
+                });
+            } else {
+                authArea.innerHTML = `
+                    <div class="auth-buttons">
+                        <a href="login.html" class="auth-btn">Đăng nhập</a>
+                        <a href="signup.html" class="auth-btn">Đăng ký</a>
+                    </div>
+                `;
+            }
+        } catch (err) {
+            console.error("Lỗi khi kiểm tra session:", err);
+        }
+    }
+
+    function toggleDropdown() {
+        document.getElementById("userDropdown").classList.toggle("show");
+    }
+
+    window.onclick = function(e) {
+        if (!e.target.matches('.user-name')) {
+            let dropdown = document.getElementById("userDropdown");
+            if (dropdown && dropdown.classList.contains("show")) {
+                dropdown.classList.remove("show");
+            }
+        }
+    }
+
+    checkUser();
+</script>

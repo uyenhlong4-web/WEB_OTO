@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khóa học của tôi - STEM Kỹ thuật Ô tô</title>
+    <link rel="stylesheet" href="cssweb.css"> 
+    <style>
+        /* CSS KHỐI QUẢN LÝ KHÓA HỌC (Đã lấy từ code bạn cung cấp) */
+        /* Giả định các biến CSS như --primary-color, --secondary-color, v.v. đã được định nghĩa trong cssweb.css */
+        .course-management {
+            background-color: var(--white-color);
+            border-radius: 12px;
+            box-shadow: var(--box-shadow-light);
+            margin-top: 40px;
+            padding: 20px; /* Đã thêm padding */
+        }
+
+        .course-management h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .course-management h3::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -8px;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background: var(--secondary-color);
+        }
+
+        /* Course List Container */
+        .course-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        /* Individual Course Item Card */
+        .course-item {
+            background: var(--bg-light-gray);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            text-align: center;
+        }
+
+        /* Hover Effect for Course Items */
+        .course-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-item h4 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .course-item p {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        /* Button Styling */
+        .select-btn, .submit-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white-color);
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
+        }
+
+        .select-btn:hover, .submit-btn:hover {
+            background-color: #54381e;
+            transform: translateY(-2px);
+        }
+
+        /* CSS cho popup message */
+        .message-box {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 8px;
+            color: white;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .message-box.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .message-box.success {
+            background-color: #4CAF50; /* Green */
+        }
+
+        .message-box.error {
+            background-color: #f44336; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <div id="message-box" class="message-box"></div>
+
+    <header>
+        <div class="container header-container">
+            <h1><a href="main.html">STEM Kỹ thuật Ô tô</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="main.html#about">Giới thiệu</a></li>
+                    <li><a href="main.html#topics">Chủ đề</a></li>
+                    <li><a href="main.html#projects">Dự án</a></li>
+                    <li><a href="main.html#contact">Liên hệ</a></li>
+                    <li><a href="index.html">Câu hỏi Quiz</a></li>
+                    <li id="auth-area" class="user-menu"></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container content-container">
+        <section id="my-courses">
+            <h2 class="content-title">Danh sách khóa học</h2>
+            <div class="course-management">
+                <h3>Chọn khóa học có sẵn</h3>
+                <div class="course-list" id="available-courses"> 
+                    <div class="course-item">
+                        <h4>Bài học 1: The Basics / How cars work? (3D animation)</h4>
+                        <p>Tìm hiểu tổng quan về <b>giải phẫu ô tô</b>, bao gồm các hệ thống chính: Động cơ, Truyền động, Khung gầm, Hệ thống treo và Hệ thống điện.</p>
+                        <button class="select-btn" data-course-id="1">Vào</button>
+                    </div>
+                    <div class="course-item">
+                        <h4>Bài học 2: Cơ bản về Động cơ ô tô V6</h4>
+                        <p>Nghiên cứu nguyên lý làm việc của <b>Động cơ Đốt trong bốn kỳ</b>, cấu hình <b>V6</b> và vai trò của các thành phần cốt lõi (Piston, Trục khuỷu, Xu-páp).</p>
+                        <button class="select-btn" data-course-id="2">Vào</button>
+                    </div>
+                    <div class="course-item">
+                        <h4>Bài học 3: Hệ Thống Treo Độc Lập và Phụ Thuộc Trên Ô Tô</h4>
+                        <p>Phân tích chức năng của <b>Lò xo</b> và <b>Giảm chấn</b>. Nghiên cứu <b>Nguyên lý hoạt động</b>, <b>Ưu điểm</b> và <b>Nhược điểm</b> của <b>Treo Độc lập</b> (MacPherson, Xương đòn kép) và <b>Treo Phụ thuộc</b> (Cầu rắn, Lò xo lá).
+                        Hiểu rõ hệ thống treo nào phù hợp với từng loại xe (xe đua, xe du lịch hay xe tải).
+                        </p>
+                        <button class="select-btn" data-course-id="3">Vào</button>
+                    </div>
+                    <div class="course-item">
+                        <h4>Bài học 4: Cảm biến Ô tô</h4>
+                        <p>Tìm hiểu <b>chi tiết</b> 10 loại <b>cảm biến hiện đại</b> (Oxy, Trục cam/Trục khuỷu, MAP/MAF,...) được ví như <b>giác quan</b> của xe. Phân tích chức năng, vị trí lắp đặt và cách kiểm tra hư hỏng.</p>
+                        <button class="select-btn" data-course-id="4">Vào</button>
+                    </div>
+                    <div class="course-item">
+                        <h4>Bài học 5: Cấu tạo động cơ & Nguyên lý hoạt động</h4>
+                        <p>Nghiên cứu chi tiết cấu tạo, nguyên lý và bảo dưỡng của <b>Động cơ Đốt trong</b>, bao gồm 10 hệ thống chính (Làm mát, Bôi trơn, Nạp nhiên liệu,...) và vận hành.</p>
+                        <button class="select-btn" data-course-id="5">Vào</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 STEM Kỹ thuật Ô tô. All rights reserved.</p>              
+            <p>Hotline : +8348975461</p>
+            <p>Email : dacthanh0605@gmail.com</p>
+        </div>
+    </footer>
+<script>
+// Hàm hiển thị thông báo popup (Đã chỉnh sửa để dùng class)
+function showMessage(message, type = 'success') {
+  const msgBox = document.getElementById('message-box');
+  msgBox.textContent = message;
+  // Thay đổi class và thêm class 'show' để hiển thị
+  msgBox.className = `message-box show ${type}`; 
+  setTimeout(() => {
+    // Xóa class 'show' để ẩn sau 2.5s
+    msgBox.className = 'message-box';
+  }, 2500);
+}
+
+// ------------------- LOGIC USER VÀ MENU -------------------
+
+// Check session & hiển thị menu
+async function checkUser() {
+  try {
+    let res = await fetch("http://localhost/web/check_session.php");
+    let data = await res.json();
+    const authArea = document.getElementById("auth-area");
+
+    if (data.logged_in) {
+      authArea.innerHTML = `
+        <span class="user-name" onclick="toggleDropdown()">Xin chào, ${data.user_name} ▾</span>
+        <ul class="dropdown" id="userDropdown">
+          <li><a href="profile.html">Thông tin cá nhân</a></li>
+          <li><a href="my_course.html">Khóa học của tôi</a></li>
+          <li><a href="#" id="logout-link">Đăng xuất</a></li>
+        </ul>
+      `;
+      // Thiết lập sự kiện đăng xuất
+      document.getElementById("logout-link").addEventListener("click", async (e) => {
+        e.preventDefault();
+        await fetch("http://localhost/web/logout.php");
+        window.location.href = "main.html";
+      });
+    } else {
+      authArea.innerHTML = `
+        <div class="auth-buttons">
+          <a href="login.html" class="auth-btn">Đăng nhập</a>
+          <a href="signup.html" class="auth-btn">Đăng ký</a>
+        </div>
+      `;
+    }
+  } catch (err) {
+    console.error("Lỗi khi kiểm tra session:", err);
+  }
+}
+
+function toggleDropdown() {
+  const dropdown = document.getElementById("userDropdown");
+  if (dropdown) {
+    dropdown.classList.toggle("show");
+  }
+}
+
+// ------------------- LOGIC CHUYỂN HƯỚNG BÀI HỌC -------------------
+
+function setupCourseSelection() {
+    // 1. Lấy tất cả các nút 'Vào'
+    const selectButtons = document.querySelectorAll('.select-btn');
+
+    selectButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // 2. Lấy ID từ thuộc tính data-course-id
+            const courseId = this.getAttribute('data-course-id');
+            
+            // 3. Xây dựng URL đích và chuyển hướng
+            const targetUrl = `lesson.html#${courseId}`;
+            
+            window.location.href = targetUrl;
+        });
+    });
+}
+
+// ------------------- KHỞI CHẠY CHỨC NĂNG -------------------
+
+// Gọi hàm checkUser ngay lập tức
+checkUser(); 
+
+// Gọi hàm setupCourseSelection sau khi DOM (cấu trúc HTML) đã tải xong
+document.addEventListener('DOMContentLoaded', setupCourseSelection); 
+
+// Thêm chức năng đóng dropdown khi click ra ngoài
+window.onclick = function(e) {
+    if (!e.target.matches('.user-name')) {
+        let dropdown = document.getElementById("userDropdown");
+        if (dropdown && dropdown.classList.contains("show")) {
+            dropdown.classList.remove("show");
+        }
+    }
+}
+</script>
+</body>
+</html>

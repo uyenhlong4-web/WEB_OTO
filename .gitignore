@@ -1,0 +1,4 @@
+﻿.env
+config/db.php
+config.php
+node_modules/
